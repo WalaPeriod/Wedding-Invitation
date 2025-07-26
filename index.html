@@ -1,185 +1,234 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Slideshow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+	
+	
+	
+		
+          body {
 
- body {
-            
-           background-color: #fffbf7; /* sage green color */
+           
+            background-color: #fffaf5;
         }
-		
-		
-		
-		
-        .container {
-            background: #87ae73;
-			color: white;
-			opacity: 0.80;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-			 
-            align-items: center;
-			
-			border-radius: 10px;
-			margin-top: 15%;
-			margin-right: auto;
-			margin-bottom: auto;
-			margin-left: auto;
-			animation: moveUp 2s infinite alternate;
+	
+	
+	
+	
+
+	
+	
+	
+        .slide {
+            transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transform-origin: center;
         }
-		
-			 @keyframes moveUp {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
+        
+       
+        
+        .slide-content {
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .slide:hover .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+        }
+        
+        .slide-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .slide-indicator.active {
+            width: 24px;
+            background-color: white;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
         }
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+        /* Rain Heart Animation */
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: fall linear infinite;
+            color: #9ACD32; /* Sage green hearts */
+            opacity: 0.7;
+            z-index: 0;
+        }
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 980px;
-  position: relative;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-   
-  top: 100%;
-  border: 2px solid green;
-  width: auto;
-  padding: 20px;
-  margin-top: auto;
-  margin-right: auto;
-   margin-left: auto;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-opacity: 
-  background-color:white;
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-</style>
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="slideshow-container">
 
-<div class="mySlides fade">
-  
-  <img src="https://i.ibb.co/RGCZZLP1/1.jpg" style="width:100%">
+<center><a href="#rsvp" class="inline-block bg-transparent border-2 border-white text-black px-8 py-3 rounded-full hover:bg-white hover:text-gray-900 transition duration-300">Home</a></center>
+ <class="bg-[#FFFDD0] min-h-screen flex items-center justify-center p-4 overflow-hidden">
+    <div class="relative w-full max-w-4xl mx-auto">
+        <!-- Slideshow Container -->
+        <div class="relative overflow-hidden rounded-2xl shadow-2xl h-96 md:h-[38rem]"> 
 
-</div>
+            <!-- Slides -->
+            <div class="relative h-full">
+                <!-- Slide 1 -->
+                <div class="slide absolute inset-0 w-full h-full fade-in" data-index="0">
+                   <img src="https://i.ibb.co/RGCZZLP1/1.jpg"alt="Ocean" class="w-full h-full object-cover">
+                
+                    <div class="slide-content absolute bottom-0 left-0 p-6 text-white">
+                       
+                     
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="slide absolute inset-0 w-full h-full opacity-0" data-index="1">
+                    <img src="https://i.ibb.co/G4zHy6d8/2.jpg" alt="Ocean" class="w-full h-full object-cover">
+                    
+                    <div class="slide-content absolute bottom-0 left-0 p-6 text-white">
+                     
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="slide absolute inset-0 w-full h-full opacity-0" data-index="2">
+                    <img src="https://i.ibb.co/nq1dRX7t/3.jpg" alt="Ocean" class="w-full h-full object-cover">
+                    
+                    <div class="slide-content absolute bottom-0 left-0 p-6 text-white">
+                        
+                    </div>
+                </div>
+                
+              
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 z-20">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 z-20">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Indicators -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+                <div class="slide-indicator w-3 h-3 rounded-full bg-white/50 cursor-pointer active"></div>
+                <div class="slide-indicator w-3 h-3 rounded-full bg-white/50 cursor-pointer"></div>
+                <div class="slide-indicator w-3 h-3 rounded-full bg-white/50 cursor-pointer"></div>
+                <div class="slide-indicator w-3 h-3 rounded-full bg-white/50 cursor-pointer"></div>
+            </div>
+        </div>
+        
+        <!-- Caption -->
+        <div class="mt-6 text-center text-gray-300">
 
-<div class="mySlides fade">
-  
-  <img src="https://i.ibb.co/G4zHy6d8/2.jpg" style="width:100%">
- 
-</div>
+        </div>
+    </div>
 
-<div class="mySlides fade">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.slide-indicator');
+            const prevBtn = document.getElementById('prev');
+            const nextBtn = document.getElementById('next');
+            let currentIndex = 0;
+            let interval;
+            
+            // Initialize slideshow
+            function initSlideshow() {
+                updateSlidePosition();
+                startAutoSlide();
+                
+                // Add event listeners
+                prevBtn.addEventListener('click', prevSlide);
+                nextBtn.addEventListener('click', nextSlide);
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => goToSlide(index));
+                });
+                
+                // Pause on hover
+                const slideshow = document.querySelector('.relative.overflow-hidden');
+                slideshow.addEventListener('mouseenter', pauseAutoSlide);
+                slideshow.addEventListener('mouseleave', startAutoSlide);
+            }
+            
+            // Update slide position
+            function updateSlidePosition() {
+                slides.forEach((slide, index) => {
+                    if (index === currentIndex) {
+                        slide.classList.remove('opacity-0');
+                        slide.classList.add('fade-in');
+                    } else {
+                        slide.classList.add('opacity-0');
+                        slide.classList.remove('fade-in');
+                    }
+                });
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlidePosition();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlidePosition();
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlidePosition();
+            }
+            
+            // Auto slide
+            function startAutoSlide() {
+                clearInterval(interval);
+                interval = setInterval(nextSlide, 10000);
+            }
+            
+            // Pause auto slide
+            function pauseAutoSlide() {
+                clearInterval(interval);
+            }
+            
+            // Initialize
+            initSlideshow();
 
-  <img src="https://i.ibb.co/nq1dRX7t/3.jpg" style="width:100%">
-  
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
-<div class="container"><h2><center>WEDDING VIDEO SOON HERE</h2><div class="arrow"></div></div></ccenter>
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
-
+        });
+    </script>
 </body>
-</html> 
+</html>
