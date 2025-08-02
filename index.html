@@ -1,4 +1,52 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop/Mobile Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Site</h1>
+    <button id="toggleView">Switch to Desktop View</button>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop/Mobile Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Site</h1>
+    <button id="toggleView">Switch to Desktop View</button>
+
+
+
+
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -217,3 +265,94 @@ document.getElementById("youTubeButton").onclick = function() {
 
 </body>
 </html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <script>
+  let isDesktop = false;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('toggleView');
+    if (!toggleButton) return;
+
+    toggleButton.addEventListener('click', function () {
+      isDesktop = !isDesktop;
+
+      // Update button text
+      this.textContent = isDesktop ? 'Switch to Mobile View' : 'Switch to Desktop View';
+
+      // Redirect based on current view
+      const desktopURL = "https://weddingiankellyandjenalyn.github.io/Wedding-Invitation/desktop";
+      const mobileURL = "https://weddingiankellyandjenalyn.github.io/Wedding-Invitation/mobile";
+
+      window.location.href = isDesktop ? desktopURL : mobileURL;
+    });
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let isDesktop = false;
+
+        document.getElementById('toggleView').addEventListener('click', function() {
+            isDesktop = !isDesktop;
+            if (isDesktop) {
+                window.location.href = 'https://www.example.com/desktop'; // Link to desktop version
+                this.textContent = 'Switch to Mobile View';
+            } else {
+                window.location.href = 'https://www.example.com/mobile'; // Link to mobile version
+                this.textContent = 'Switch to Desktop View';
+            }
+        });
+    </script>
+
+</body>
+</html>
